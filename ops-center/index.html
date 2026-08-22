@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>A11-K Operations Command Center</title>
+    <link rel="stylesheet" href="css/a11k-branding.css">
+</head>
+<body>
+    <div class="a11k-command-wrapper">
+        <div class="header-main">
+            <h2>A11-K Operations Command Center</h2>
+            <div class="status-badge" id="status-badge">Connecting…</div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('portfolio', event)">Portfolio</button>
+            <button class="tab-btn" onclick="switchTab('telemetry', event)">Telemetry</button>
+            <button class="tab-btn" onclick="switchTab('health', event)">System Health</button>
+        </div>
+
+        <!-- Tab 1: Portfolio -->
+        <div id="portfolio" class="tab-content active">
+            <h3>Revenue Portfolios</h3>
+            <div id="portfolio-content">
+                <p class="empty-state">No Stripe key configured. Set <code>STRIPE_SECRET_KEY</code> in <code>.env</code> to load live payment links.</p>
+            </div>
+        </div>
+
+        <!-- Tab 2: Telemetry -->
+        <div id="telemetry" class="tab-content">
+            <h3>Edge Telemetry (live)</h3>
+            <div class="terminal-box" id="telemetry-log">
+                <div>[SYSTEM] Telemetry middleware active. Requests logged to network_telemetry.log</div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Health -->
+        <div id="health" class="tab-content">
+            <h3>System Health</h3>
+            <div id="health-content">
+                <p class="empty-state">Loading health check…</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/a11k-app.js"></script>
+</body>
+</html>

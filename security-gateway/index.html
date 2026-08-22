@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A11-K Operations Command Center</title>
+    <link rel="stylesheet" href="css/a11k-branding.css">
+</head>
+<body>
+    <div class="a11k-command-wrapper">
+        <div class="header-main">
+            <h2>A11-K Operations Command Center</h2>
+            <div class="status-badge">System: Connected</div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="portfolio">Stripe Portfolio</button>
+            <button class="tab-btn" data-tab="compliance">ECP / IRC Compliance</button>
+            <button class="tab-btn" data-tab="telemetry">Edge Telemetry</button>
+        </div>
+
+        <div id="portfolio" class="tab-content active">
+            <h3>Active Stripe Revenue Portfolios</h3>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Link ID</th><th>Name</th><th>Tier</th><th>Pricing</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>plink_1U1cU97RB5…</td><td>A11 Signal</td><td>signal</td><td>€149/mo</td></tr>
+                    <tr><td>plink_1U1cU97RB…</td><td>A11 Operator</td><td>operator</td><td>€690/mo</td></tr>
+                    <tr><td>plink_1U1cU97RB…</td><td>A11 Council</td><td>council</td><td>€1,900/mo</td></tr>
+                </tbody>
+            </table>
+            <button class="action-btn" id="exportBtn">Export Live Matrix to CSV</button>
+        </div>
+
+        <div id="compliance" class="tab-content">
+            <h3>Engineering Changes &amp; Tax Verification</h3>
+            <p><strong>Active Blueprint:</strong> Project Obsidian Phase II (ECP-2026-08)</p>
+            <ul>
+                <li>IRC Section 41 (R&amp;D Credits): Qualified</li>
+                <li>IRC Section 168 (Bonus Depreciation): Active</li>
+            </ul>
+        </div>
+
+        <div id="telemetry" class="tab-content">
+            <h3>Edge Latency &amp; Network Ingress</h3>
+            <div class="terminal-box">
+                [SYSTEM LOG] Core system modules fully operational.<br>
+                [SECURITY] Local Express firewall active on port 5000.<br>
+                [UXP CORE] Ed25519 signature checks running in background state.
+            </div>
+        </div>
+    </div>
+    <script src="js/a11k-exporter.js"></script>
+    <script>
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+                document.getElementById(btn.dataset.tab).classList.add('active');
+                btn.classList.add('active');
+            });
+        });
+        document.getElementById('exportBtn').addEventListener('click', () => A11kDataExporter.exportTable('portfolio'));
+    </script>
+</body>
+</html>
