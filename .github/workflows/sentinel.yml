@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Check estate sites
         run: |
-          SITES=(https://angelllkr-eng.github.io/a11k/ https://angelllkr-eng.github.io/a11k/bio-sovereign/ https://angelllkr-eng.github.io/a11k/deep-aquaculture/ https://angelllkr-eng.github.io/a11k/quantum-logistics/ https://angelllkr-eng.github.io/a11k/orbital-reclaim/ https://angelllkr-eng.github.io/a11k/mesh-geothermal/ https://aurel.mind-reply.com https://mind-reply.com)
+          SITES=(https://mind-reply.github.io/A11-K/ https://mind-reply.github.io/A11-K/bio-sovereign/ https://mind-reply.github.io/A11-K/deep-aquaculture/ https://mind-reply.github.io/A11-K/quantum-logistics/ https://mind-reply.github.io/A11-K/orbital-reclaim/ https://mind-reply.github.io/A11-K/mesh-geothermal/ https://aurel.mind-reply.com https://mind-reply.com)
           FAILED=0
           for url in "${SITES[@]}"; do
             STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$url")
