@@ -14,12 +14,12 @@ jobs:
           echo "Generated: $(date)" >> report.md
           echo "" >> report.md
           echo "# Sites" >> report.md
-          SITES=("https://angelllkr-eng.github.io/a11k/" https://angelllkr-eng.github.io/a11k/bio-sovereign/" https://angelllkr-eng.github.io/a11k/deep-aquaculture/" https://angelllkr-eng.github.io/a11k/quantum-logistics/" https://angelllkr-eng.github.io/a11k/orbital-reclaim/" https://angelllkr-eng.github.io/a11k/mesh-geothermal/" https://aurel.mind-reply.com" https://mind-reply.com)
+          SITES=("https://mind-reply.github.io/A11-K/" "https://mind-reply.github.io/angellllkr-eng.github.io/" "https://mind-reply.github.io/angellllkr-eng.github.io/a11k/" "https://aurel.mind-reply.com" "https://mind-reply.com")
           for url in "${SITES[@]}"; do
-            STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$")
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$url")
             echo "- $url: $STATUS" >> report.md
           done
-          echo "" >>> report.md
+          echo "" >> report.md
           echo "# Owner" >> report.md
           echo "Angel Krastev (DOB: 10/04/1997) - A.K. Estate" >> report.md
           cat report.md
